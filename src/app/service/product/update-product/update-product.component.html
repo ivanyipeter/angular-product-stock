@@ -1,0 +1,73 @@
+<h1 align="center">Update Product</h1>
+<br>
+<form (ngSubmit)="onSubmit()">
+  <form [formGroup]="productForm" novalidate>
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" formControlName="name" required minlength="4" id="name" required
+             [(ngModel)]="product.name"
+             name="name">
+      <div
+        *ngIf="productForm.controls['name'].invalid && (productForm.controls['name'].dirty || productForm.controls['name'].touched)"
+        class="alert alert-danger">
+        <div *ngIf="productForm.controls['name'].errors.required">
+          Name is required.
+        </div>
+        <div *ngIf="productForm.controls['name'].errors.minlength">
+          Name must be at least 4 characters long.
+        </div>
+      </div>
+
+      <label for="description">Description</label>
+      <input type="text" class="form-control" formControlName="description" required minlength="4" id="description"
+             required [(ngModel)]="product.description"
+             name="description">
+      <div
+        *ngIf="productForm.controls['description'].invalid && (productForm.controls['description'].dirty || productForm.controls['description'].touched)"
+        class="alert alert-danger">
+        <div *ngIf="productForm.controls['description'].errors.required">
+          Description is required.
+        </div>
+        <div *ngIf="productForm.controls['description'].errors.minlength">
+          Description must be at least 4 characters long.
+        </div>
+      </div>
+
+      <label for="count">Count</label>
+      <input type="text" class="form-control" formControlName="count" id="count" required [(ngModel)]="product.count"
+             name="count">
+      <div
+        *ngIf="productForm.controls['count'].invalid && (productForm.controls['count'].dirty || productForm.controls['count'].touched)"
+        class="alert alert-danger">
+        <div *ngIf="productForm.controls['count'].errors.required">
+          Count is required.
+        </div>
+        <div *ngIf="productForm.controls['count'].errors.pattern">
+          Invalid count number
+        </div>
+      </div>
+
+      <label for="stockId">Stock Id</label>
+      <input type="text" class="form-control" formControlName="stockId" id="stockId" required
+             [(ngModel)]="product.stockId" name="stockId">
+      <div
+        *ngIf="productForm.controls['stockId'].invalid && (productForm.controls['stockId'].dirty || productForm.controls['stockId'].touched)"
+        class="alert alert-danger">
+        <div *ngIf="productForm.controls['stockId'].errors.required">
+          Stock ID is required.
+        </div>
+        <div *ngIf="productForm.controls['stockId'].errors.pattern">
+          Invalid stock number
+        </div>
+
+      </div>
+    </div>
+  </form>
+  <button type="submit" [disabled]="!productForm.valid" class="btn btn-success">Submit</button>
+  <br>
+  <br>
+  <br>
+  <div *ngIf="message">
+    <div class="alert alert-danger" role="alert"> {{message}} </div>
+  </div>
+</form>

@@ -1,0 +1,25 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+</head>
+<body>
+<h1 align="center">Stock Details</h1>
+<br>
+<table class="table table-bordered table-striped">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">Stock name</th>
+    <th scope="col">Product</th>
+    <th scope="col">Description</th>
+    <th scope="">Count</th>
+  </tr>
+  </thead>
+  <tr *ngFor="let product of products">
+    <td>{{ product.stockName }}</td>
+    <td>{{ product.name }}</td>
+    <td>{{ product.description}}</td>
+    <td>{{ product.count }}</td>
+  </tr>
+</table>
+</body>
+</html>

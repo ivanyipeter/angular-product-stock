@@ -1,0 +1,33 @@
+<h1 align="center">Products</h1>
+<br>
+
+<table class="table table-bordered table-striped">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Name</th>
+    <th scope="col">Description</th>
+    <th scope="col">Count</th>
+    <th scope="col">Stock Id</th>
+    <th scope="col">Stock name</th>
+    <th scope="col"></th>
+    <th scope="col"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let product of products">
+    <td>{{ product.id }}</td>
+    <td>{{ product.name }}</td>
+    <td>{{ product.description }}</td>
+    <td>{{ product.count }}</td>
+    <td>{{product.stockId}}</td>
+    <td>{{product.stockName}}</td>
+    <td>
+      <button (click)="deleteProduct(product.id)" class="btn btn-danger">Delete</button>
+    </td>
+    <td>
+      <button type="button" [routerLink]="['/updateproduct',product.id]" class="btn btn-info">Update</button>
+    </td>
+  </tr>
+  </tbody>
+</table>

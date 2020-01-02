@@ -1,0 +1,36 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+</head>
+<body>
+<h1 align="center">STOCKS</h1>
+<br>
+<table class="table table-bordered table-striped">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Name</th>
+    <th scope="col">Products</th>
+    <th scope=""></th>
+    <th scope=""></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let stock of stocks">
+    <td>{{ stock.id }}</td>
+    <td>{{ stock.name }}</td>
+    <!--    <td>{{stock.products | json}}</td>-->
+    <td>
+      <button [routerLink]="['/stockproducts',stock.id]" class="btn btn-success">Details</button>
+    </td>
+    <td>
+      <button (click)="deleteStockById(stock.id)" class="btn btn-danger">Delete</button>
+    </td>
+    <td>
+      <button [routerLink]="['/updatestock',stock.id]" class="btn btn-info">Update</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>
